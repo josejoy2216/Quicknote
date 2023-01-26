@@ -1,0 +1,23 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCKiQGsmAbKlmtWafmXlQiAnMnb4mDpqkw",
+    authDomain: "rectolabs9.firebaseapp.com",
+    databaseURL: "https://rectolabs9.firebaseio.com",
+    projectId: "rectolabs9",
+    storageBucket: "rectolabs9.appspot.com",
+    messagingSenderId: "743317091327",
+    appId: "1:743317091327:web:7e47d8d66f03995bc7adca",
+    measurementId: "G-L1PRCWL8X2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>

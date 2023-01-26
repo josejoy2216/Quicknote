@@ -1,0 +1,103 @@
+body {
+	background:  -webkit-linear-gradient(left, 	#FFFF00, 	#00FF00) !important;
+    
+}
+
+.wallet-container {
+	background:  -webkit-linear-gradient(left, #3931af, #00c6ff);
+		width: 400px;
+		color: #fff;
+/*
+		font-size: 15px;
+		padding: 20px 20px 0;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		position: fixed;
+*/
+  
+
+   font-size: 15px; 
+  padding: 20px 20px 0;
+  margin: 2% auto;
+/*  padding: 0 0px 0 0;*/
+  
+}
+
+.page-title {
+	text-align: left;
+}
+
+.fa-user {
+	float: right;
+}
+
+.fa-align-left {
+	margin-right: 15px;
+}
+
+.amount-box img {
+	width: 50px;
+}
+
+.amount {
+	font-size: 35px;
+}
+
+.amount-box p {
+	margin-top: 10px;
+	margin-bottom: -10px;
+}
+
+.btn-group {
+	margin: 20px 0;
+}
+
+.btn-group .btn {
+	margin: 30px;
+	border-radius: 20px !important;
+	font-size: 12px;
+}
+
+.txn-history {
+	text-align: left;
+}
+
+.txn-list {
+	background-color: #fff;
+	padding: 12px 10px; 
+	color: #777;
+	font-size: 14px;
+	margin: 7px 0;
+}
+
+.debit-amount {
+	color: red;
+	float: right;
+}
+
+.credit-amount {
+	color: green;
+	float: right;
+
+}
+
+.footer-menu {
+	margin: 20px -20px 0;
+	bottom: 0;
+	border-top: 1px solid #ccc;
+	padding: 10px 10px 0;
+}
+
+.footer-menu p {
+	font-size: 12px;
+}
+
+@media screen and (max-width: 800px){
+  .wallet-container {
+    height: 115%;
+    bottom: 20px;
+    margin-top: 100px;
+  }
+  
+}

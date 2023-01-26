@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Your Profile - RectoLabs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="icon" typ="image/jpg" href="images/hero.jpg" />
+
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+  <a class="navbar-brand" href="home.html">
+    <img src="images/hero.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+  </a>
+  <a class="navbar-brand" href="home.html">RectoLabs</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0 ml-auto">
+      <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+      <button formaction="searchresult.html" class="btn btn-success my-1 my-sm-0" type="submit">Search </button>
+    </form>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="home.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="upload.html">Upload</a>
+      </li>
+    <li class="nav-item">
+        <a class="nav-link" href="Qanda.html">Q&A</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="wallet.html">Wallet</a>
+      </li>
+    </ul>
+  <a class="navbar-brand" href="profile1.html">
+    <img src="images/hero.jpg" alt="logo" width="30" height="30" style="border-radius: 50%;">
+    Name 
+  </a>
+  
+  </div>
+    
+
+</nav>
+<div>
+  <style type="text/css">
+  body{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+}
+.emp-profile{
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #212529b8;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+.profile-head h5{
+    color: #333;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+.profile-edit-btn{
+    border: none;
+    border-radius: 1.5rem;
+    width: 70%;
+    padding: 2%;
+    font-weight: 600;
+    color: #6c757d;
+    cursor: pointer;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 5%;
+}
+.proile-rating span{
+    color: #495057;
+    font-size: 15px;
+    font-weight: 600;
+}
+.profile-head .nav-tabs{
+    margin-bottom:5%;
+}
+.profile-head .nav-tabs .nav-link{
+    font-weight:600;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link.active{
+    border: none;
+    border-bottom:2px solid #0062cc;
+}
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+}
+.profile-tab p{
+    font-weight: 600;
+    color: #0062cc;
+}
+.collapse-content .fa.fa-heart:hover {
+  color: #f44336 !important;
+}
+.collapse-content .fa.fa-share-alt:hover {
+  color: #0d47a1 !important;
+}
+  </style>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.avatar').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+});
+  </script>
+<div class="container emp-profile">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" class="avatar img-circle img-thumbnail" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                Change Photo
+                                <input type="file" class="text-center center-block file-upload">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        Kshiti Ghelani
+                                    </h5>
+                                    <h6>
+                                        Web Developer and Designer
+                                    </h6>
+                                    <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Uplods</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input formaction="profile2.html" type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Website Link</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">WooCommerce</a><br/>
+                            <a href="">PHP, .Net</a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>User Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti123</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Kshiti Ghelani</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>kshitighelani@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>123 456 7890</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>Web Developer and Designer</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                               <!-- Card -->
+<div class="card promoting-card">
+
+  <!-- Card content -->
+  <div class="card-body d-flex flex-row">
+
+    <!-- Avatar -->
+    <a href="profile1.html">    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+</a>
+
+    <!-- Content -->
+    <div>
+
+      <!-- Title -->
+      <a href="genericpostpage.html" class="card-title font-weight-bold mb-2">New spicy meals</a>
+      <!-- Subtitle -->
+      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+
+    </div>
+
+  </div>
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <a href="genericpostpage.html">
+          <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap" >
+
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <div class="collapse-content">
+
+      <P>Recently, we added several exotic new dishes to our restaurant menu.</P>
+        
+
+    </div>
+
+  </div>
+
+</div>
+<!-- Card -->
+
+
+
+                                            </div>
+                                            <div class="col-md-6 ">
+                                              <!-- Card -->
+<div class="card promoting-card">
+
+  <!-- Card content -->
+  <div class="card-body d-flex flex-row">
+
+    <!-- Avatar -->
+    <a href="profile1.html">    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+</a>
+
+    <!-- Content -->
+    <div>
+
+      <!-- Title -->
+      <a href="genericpostpage.html" class="card-title font-weight-bold mb-2">New spicy meals</a>
+      <!-- Subtitle -->
+      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+
+    </div>
+
+  </div>
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <a href="genericpostpage.html">
+          <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
+
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <div class="collapse-content">
+
+      <P>Recently, we added several exotic new dishes to our restaurant menu.</P>
+        
+
+    </div>
+
+  </div>
+
+</div>
+<!-- Card -->
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <!-- Card -->
+<div class="card promoting-card">
+
+  <!-- Card content -->
+  <div class="card-body d-flex flex-row">
+
+    <!-- Avatar -->
+    <a href="profile1.html">    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+</a>
+
+    <!-- Content -->
+    <div>
+
+      <!-- Title -->
+      <a href="genericpostpage.html" class="card-title font-weight-bold mb-2">New spicy meals</a>
+      <!-- Subtitle -->
+      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+
+    </div>
+
+  </div>
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <a href="genericpostpage.html">
+          <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
+
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <div class="collapse-content">
+
+      <P>Recently, we added several exotic new dishes to our restaurant menu.</P>
+        
+
+    </div>
+
+  </div>
+
+</div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <!-- Card -->
+<div class="card promoting-card">
+
+  <!-- Card content -->
+  <div class="card-body d-flex flex-row">
+
+    <!-- Avatar -->
+    <a href="profile1.html">    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+</a>
+
+    <!-- Content -->
+    <div>
+
+      <!-- Title -->
+      <a href="genericpostpage.html" class="card-title font-weight-bold mb-2">New spicy meals</a>
+      <!-- Subtitle -->
+      <p class="card-text"><i class="far fa-clock pr-2"></i>07/24/2018</p>
+
+    </div>
+
+  </div>
+
+  <!-- Card image -->
+  <div class="view overlay">
+    <a href="genericpostpage.html">
+          <img class="card-img-top rounded-0" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/full page/2.jpg" alt="Card image cap">
+
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+
+  <!-- Card content -->
+  <div class="card-body">
+
+    <div class="collapse-content">
+
+      <P>Recently, we added several exotic new dishes to our restaurant menu.</P>
+        
+
+    </div>
+
+  </div>
+
+</div>
+                                            </div>
+                                        </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+      </div>
+
+
+
+
+<!--Footer -->
+<div>
+	<style type="text/css">
+	@import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,700);
+body {
+ font-family:Rubik,sans-serif;
+ position:relative;
+ font-weight:400;
+ font-size:15px
+}
+ul {
+ padding:0;
+ margin:0
+}
+li {
+ list-style:none
+}
+a:focus,a:hover {
+ text-decoration:none;
+ -webkit-transition:.3s ease;
+ -o-transition:.3s ease;
+ transition:.3s ease
+}
+a:focus {
+ outline:0
+}
+img {
+ max-width:100%
+}
+p {
+ font-size:16px;
+ line-height:30px;
+ color:#898b96;
+ font-weight:300
+}
+h4 {
+ font-family:Rubik,sans-serif;
+ margin:0;
+ font-weight:400;
+ padding:0;
+ color:#363940
+}
+a {
+ color:#5867dd
+}
+.no-padding {
+ padding:0!important
+}
+.go_top {
+ line-height:40px;
+ cursor:pointer;
+ width:40px;
+ background:#5867dd;
+ color:#fff;
+ position:fixed;
+ -webkit-box-shadow:0 4px 4px rgba(0,0,0,.1);
+ box-shadow:0 4px 4px rgba(0,0,0,.1);
+ -webkit-border-radius:50%;
+ border-radius:50%;
+ right:-webkit-calc((100% - 1140px)/ 2);
+ right:calc((100% - 1140px)/ 2);
+ z-index:111;
+ bottom:80px;
+ text-align:center
+}
+.go_top span {
+ display:inline-block
+}
+.footer-big {
+ padding:105px 0 65px 0
+}
+.footer-big .footer-widget {
+ margin-bottom:40px
+}
+.footer--light {
+ background:#e7e8ed
+}
+.footer-big .footer-menu ul li a,.footer-big p,.footer-big ul li {
+ color:#898b96
+}
+.footer-menu {
+ padding-left:48px
+}
+.footer-menu ul li a {
+ font-size:15px;
+ line-height:32px;
+ -webkit-transition:.3s;
+ -o-transition:.3s;
+ transition:.3s
+}
+.footer-menu ul li a:hover {
+ color:#5867dd
+}
+.footer-menu--1 {
+ width:100%
+}
+.footer-widget-title {
+ line-height:42px;
+ margin-bottom:10px;
+ font-size:18px
+}
+.mini-footer {
+ background:#192027;
+ text-align:center;
+ padding:32px 0
+}
+.mini-footer p {
+ margin:0;
+ line-height:26px;
+ font-size:15px;
+ color:#999
+}
+.mini-footer p a {
+ color:#5867dd
+}
+.mini-footer p a:hover {
+ color:#34bfa3
+}
+.widget-about img {
+ display:block;
+ margin-bottom:30px
+}
+.widget-about p {
+ font-weight:400
+}
+.widget-about .contact-details {
+ margin:30px 0 0 0
+}
+.widget-about .contact-details li {
+ margin-bottom:10px
+}
+.widget-about .contact-details li:last-child {
+ margin-bottom:0
+}
+.widget-about .contact-details li span {
+ padding-right:12px
+}
+.widget-about .contact-details li a {
+ color:#5867dd
+}
+@media (max-width:991px) {
+ .footer-menu {
+  padding-left:0
+ }
+}
+
+	</style>
+  <footer class="footer-area footer--light">
+  <div class="footer-big">
+    <!-- start .container -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <div class="footer-widget">
+            <div class="widget-about">
+              <a href="home.html"><img src="http://placehold.it/250x80" alt="" class="img-fluid"></a>
+              
+              <p>RectoLabs Decription....</p>
+              <ul class="contact-details">
+                <li>
+                  <span class="icon-earphones"></span>Call Us:
+                  <a href="tel:000-000-000">000-000-000</a>
+                </li>
+                <li>
+                  <span class="icon-envelope-open">Email Us:</span>
+                  <a href="mailto:support@xyz.com">support@xyz.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Ends: .footer-widget -->
+        </div>
+        <!-- end /.col-md-4 -->
+        <div class="col-md-3 col-sm-4">
+          <div class="footer-widget">
+            <div class="footer-menu footer-menu--1">
+              <h4 class="footer-widget-title">Popular</h4>
+              <ul>
+                <li>
+                  <a href="profile1.html">Your Account</a>
+                </li>
+                <li>
+                  <a href="home.html">Home</a>
+                </li>
+                <li>
+                  <a href="upload.html">Upload</a>
+                </li>
+                <li>
+                  <a href="qanda.html">Q&A</a>
+                </li>
+                <li>
+                  <a href="wallet.html">Wallet</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end /.footer-menu -->
+          </div>
+          <!-- Ends: .footer-widget -->
+        </div>
+        <!-- end /.col-md-3 -->
+
+        <div class="col-md-3 col-sm-4">
+          <div class="footer-widget">
+            <div class="footer-menu">
+              <h4 class="footer-widget-title">Our Company</h4>
+              <ul>
+                <li>
+                  <a href="aboutus.html">About Us</a>
+                </li>
+                <li>
+                  <a href="tandc.html">Terms &amp; Conditions</a>
+                </li>
+                <li>
+                  <a href="privacy.html">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="faq.html">FAQs</a>
+                </li>
+                <li>
+                  <a href="copyright.html">Copyright</a>
+                </li>
+                <li>
+                  <a href="feedback.html">Feedback</a>
+                </li>
+                <li>
+                  <a href="report.html">Report</a>
+                </li>
+              </ul>
+            </div>
+            <!-- end /.footer-menu -->
+          </div>
+          <!-- Ends: .footer-widget -->
+        </div>
+        <!-- end /.col-lg-3 -->
+
+        <div class="col-md-3 col-sm-4">
+          <div class="footer-widget">
+            <div class="footer-menu no-padding">
+              <h4 class="footer-widget-title">Connect With Us</h4>
+              <ul>
+                <li>
+                  <a href="contactus.html">Contact Us</a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/">Facebook</a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/">Instagram</a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/">Twitter</a>
+                </li>
+                <li>
+                  <a href="mailto:suport@xyz.com">Help</a>
+                </li>
+                <li>
+                  <a href="#">Android App</a>
+                </li>
+                <!-- <li>
+                  <a href="#">Sellers Faq</a>
+                </li> -->
+              </ul>
+            </div>
+            <!-- end /.footer-menu -->
+          </div>
+          <!-- Ends: .footer-widget -->
+        </div>
+        <!-- Ends: .col-lg-3 -->
+
+      </div>
+      <!-- end /.row -->
+    </div>
+    <!-- end /.container -->
+  </div>
+  <!-- end /.footer-big -->
+
+  <div class="mini-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright-text">
+            <p>© 2020 Copyright:
+              <a href="home.html">RectoLabs</a>. All rights reserved. Created by
+              <a href="aboutus.html">Team Recto</a>
+            </p>
+          </div>
+
+<!--           <div class="go_top">
+            <span class="icon-arrow-up"></span>
+          </div>
+ -->        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+<!--Footer -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
