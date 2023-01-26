@@ -5,7 +5,7 @@ var path = require("path");
 var fs = require('fs');
 var querystring = require('querystring');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/rectrolabusers";
+var url = "mongodb://localhost:27017/quicknotesUser";
 
 var hostname = "localhost";
 var port = 3000;
