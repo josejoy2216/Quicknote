@@ -3,51 +3,41 @@ var express=require("express");
 var app = express();
 var path = require("path");
 var fs = require('fs');
-var querystring = require('querystring');
-var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/quicknotesUser";
+var router = express.Router()
+const { default: firebase } = require('@firebase/app-compat');
 
 var hostname = "localhost";
 var port = 3000;
-//"mongodb://localhost:27017/college"; here college is table name
 
-app.use(express.static(path.join(__dirname,"public")));
+// var firebaseConfig = {
+//     apiKey: "AIzaSyCWqgqD3UTSwk6BWlubyl1Y2wXjC8NTBXo",
+//     authDomain: "quicknotes-15bcf.firebaseapp.com",
+//     projectId: "quicknotes-15bcf",
+//     storageBucket: "quicknotes-15bcf.appspot.com",
+//     messagingSenderId: "462392978008",
+//     appId: "1:462392978008:web:62dfe9bfad88858167782d",
+//     measurementId: "G-MNE8ZXSG7E"
+//     };
 
-//http.createServer(function(res , res){
+// firebase.initializeApp(firebaseConfig);
+// firebase.auth.Auth.Persistence.LOCAL;
 
-app.get("/",function(res , res){
-    console.log('request for ' + req.url + ' by method ' + req.method);
-    if(req.url == "/signup.html"){
-        res.writeHead(200,{"Content-Type":"text/html"});
-        fs.createReadStream("./public/signup.html").pipe(res);
-    }
-    
-    //to check if its post
-    if(req.method == "POST"){
-        var data = "";
-        req.on("data",function(err,db){
-               if(err)throw err;
-                var q = querystring.parse(data);
-            
-            //collection means table name
-                db.collection('rectrolabusers').insertOne(q, function(err,res){
-                    if(err)throw err;
-                    console.log("1 data Inserted success");
-                    db.close();
-                            
-                    })
-               });
+$("#btn-login").click(function ()
+{
+    var email = $("#email").val();
+    var password = $("#password").val();
+    if(email != "" && password != "")
+    {
+        var result = firebase.auth().signInWithEmailAndPassword(email, password);
         
+        result.catch(function(error)
+        {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        onsole.log(errorMessage);
+        window.alert("Message: " + errorMessage);
+        });
+
     }
-//}).listen(3000);
 });
-app.listen(3000, function(){
-    console.log("we are listening at port 3000");
-    console.log("server running at http://" + hostname+":"+ port);
-    
-}); 
-
-
-
-
-

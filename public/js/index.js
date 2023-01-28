@@ -2,9 +2,21 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+var firebaseConfig = {
+    apiKey: "AIzaSyCWqgqD3UTSwk6BWlubyl1Y2wXjC8NTBXo",
+    authDomain: "quicknotes-15bcf.firebaseapp.com",
+    projectId: "quicknotes-15bcf",
+    storageBucket: "quicknotes-15bcf.appspot.com",
+    messagingSenderId: "462392978008",
+    appId: "1:462392978008:web:62dfe9bfad88858167782d",
+    measurementId: "G-MNE8ZXSG7E"
+    };
 
 const hostname = "localhost";
 const port = 3000;
+
+firebase.initializeApp(firebaseConfig);
+firebase.auth.Auth.Persistence.LOCAL;
 
 const server = http.createServer((req, res)=>{
     
